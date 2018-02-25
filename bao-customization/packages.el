@@ -110,10 +110,23 @@ Each entry is either:
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-<up>") 'scroll-up-command)
 (global-set-key (kbd "s-<down>") 'scroll-down-command)
-; (global-set-key (kbd "C-:") 'eval-expression)
+(global-set-key (kbd "C-x <down>") 'helm-mini)
 (spacemacs/set-leader-keys ":" 'eval-expression)
 (spacemacs/set-leader-keys "f g" 'find-grep-dired)
+(spacemacs/set-leader-keys "g c" 'magit-checkout)
+(spacemacs/set-leader-keys "g F" 'magit-fetch-all)
 
+; start server so we can use emacsclient
+(server-start)
+(setq server-socket-dir "~/.emacs.d/server")
+
+;; make python output faster
+;; See here for how to clear python shell buffer https://stackoverflow.com/questions/8054953/how-to-clear-ipython-buffer-in-emacs
+(setq python-shell-enable-font-lock nil)
+
+;; Use zsh for eshell
+;; (setq explicit-shell-file-name "/bin/zsh")
+(setq shell-default-shell 'multi-term)
 
 
 ;;; packages.el ends here
